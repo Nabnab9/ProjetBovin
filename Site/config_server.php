@@ -11,7 +11,7 @@
 	//Mot de passe
 	$password = "coc44ps";
 	//nom de la basse de donnée
-	$dbname = "cequetuveux";
+	$dbname = "projetbovin";
 
 
 	// Create connection
