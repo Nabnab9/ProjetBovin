@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Super Meat Bio</string>
+    <color name="bg">#787878</color>
+    <string name="racePrompt">Race du bovin</string>
+    <string name="genderPrompt">Sexe du bovin</string>
+    <string name="preference_file_key">com.bovin.settings</string>
+
+    <string-array name="raceArrays">
+        <item>Bazadaise</item>
+        <item>Blanc Bleu</item>
+        <item>Blonde d\'Aquitaine</item>
+        <item>Charolaise</item>
+        <item>Corse</item>
+        <item>Créole</item>
+        <item>Gasconne</item>
+        <item>Hereford</item>
+        <item>Highland Cattle</item>
+        <item>INRA 95</item>
+        <item>Limousine</item>
+        <item>Mirandaise</item>
+        <item>Parthenaise</item>
+        <item>Rouge des prés</item>
+        <item>Saosnoise</item>
+        <item>Taureau de Camargue</item>
+    </string-array>
+
+    <string-array name="genderArrays">
+        <item>Mâle</item>
+        <item>Femelle</item>
+    </string-array>
+</resources>
