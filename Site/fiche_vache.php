@@ -82,17 +82,17 @@
 
 									<div class=\"container-fluid bg-3 text-center\">
 									  <h3>Mon exploitation</h3>
-									  <h4><u>Pays :</u>". $row["race"]."</h4>
+									  <h4><u>Pays :</u>". $row["payss"]."</h4>
 									  <h4><u>Departement :</u>". $row["departement"]."</h4>
-									  <h4><u>Adresse :</u> 123 rue de l'Algérie </h4>
-									  <h4><u>N° Tel :</u> 01 123 123 69</h4>
+									  <h4><u>Adresse :</u>". $row["adr_agri"]."</h4>
+									  <h4><u>N° Tel :</u>". $row["n_tel_agri"]."</h4>
 									</div>
 									
 									<div class=\"container-fluid bg-1 text-center\">
 										<h3>Mon terminus</h3>
-										<h4><u>Nom :</u> Algérie</h4>
+										<h4><u>Nom :". $row["nom_abat"]."</h4>
 										<h4><u>Adresse :</u> ". $row["adr_abat"]."</h4>
-										<h4><u>N° Tel :</u> 06 69 69 69 69</h4>
+										<h4><u>N° Tel :</u>". $row["n_tel_abat"]."</h4>
 										<h4><u>Date de mort :</u>". $row["date_mort"]."</h4>
 									</div>
 								</body>";
