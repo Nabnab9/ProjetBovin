@@ -48,9 +48,10 @@ public class Form extends Activity implements OnClickListener{
             ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
             //On crée la liste qui contiendra tous nos paramètres
             //Et on y rajoute nos paramétres
-            postParameters.add(new BasicNameValuePair("code_boucle", "toto"));
+            postParameters.add(new BasicNameValuePair("code_boucle", "45321"));
             postParameters.add(new BasicNameValuePair("pass", "patate"));
             ThreadPost threadPost = new ThreadPost(postParameters);
+            threadPost.start();
 
 
 
