@@ -28,6 +28,7 @@ public class ThreadPost extends Thread{
             httppost.setEntity(new UrlEncodedFormEntity(params));
             HttpClient httpclient = new DefaultHttpClient();
             httpclient.execute(httppost); //Voila, la requête est envoyée
+            
 
         } catch (Exception e) {
             e.printStackTrace();

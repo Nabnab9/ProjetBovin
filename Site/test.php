@@ -18,7 +18,7 @@
 				//On récupère toutes les informations envoyées par le formulaire
 				//le bovin
 				$code_boucle= $_POST['code_boucle'];
-				
+				apzpoepazeâpmeazjlejkllnznelk
 				
 				
 				
