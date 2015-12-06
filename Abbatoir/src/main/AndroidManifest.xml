@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="licornesduswag.Abbatoir" >
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Super Meat Bio Abbatoir"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="licornesduswag.Abbatoir.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="licornesduswag.Abbatoir.Form" >
+            <intent-filter>
+                <action android:name="android.intent.action.FORM" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="licornesduswag.Abbatoir.Settings" >
+            <intent-filter>
+                <action android:name="android.intent.action.SET" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

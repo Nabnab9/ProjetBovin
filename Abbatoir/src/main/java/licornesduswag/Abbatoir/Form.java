@@ -1,4 +1,4 @@
-package licornesduswag.myapplication;
+package licornesduswag.Abbatoir;
 
 import android.app.Activity;
 import android.content.Context;
@@ -27,10 +27,8 @@ public class Form extends Activity implements OnClickListener{
     private Button scanBtn;
     private Button saveBtn;
     private TextView codeBoucle;
-    private TextView nomVache;
-    private TextView dateDeNaissance;
-    private Spinner race;
-    private Spinner sexe;
+    private TextView dateDeMort;
+
 
 
 
@@ -43,10 +41,8 @@ public class Form extends Activity implements OnClickListener{
         scanBtn = (Button)findViewById(R.id.ScanButton);
         saveBtn = (Button)findViewById(R.id.SubmitButton);
         codeBoucle = (EditText)findViewById(R.id.Code128);
-        nomVache = (EditText)findViewById(R.id.CowName);
-        dateDeNaissance = (EditText)findViewById(R.id.BirthDate);
-        race = (Spinner)findViewById(R.id.Race);
-        sexe = (Spinner)findViewById(R.id.Gender);
+        dateDeMort = (EditText)findViewById(R.id.DeathDate);
+
 
 
 
@@ -69,23 +65,17 @@ public class Form extends Activity implements OnClickListener{
             //On crée la liste qui contiendra tous nos paramètres
             ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
 
-            Log.d("Settings",settings.getString("ExploitationNumber", "NumeroExploitation"));
+
             //Et on y rajoute nos paramétres
             //Paramètres sur la vache
 
-
             postParameters.add(new BasicNameValuePair("code_boucle",  codeBoucle.getText().toString()));
-            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", settings.getString("ExploitationNumber", "NumeroExploitation")));
-            postParameters.add(new BasicNameValuePair("race",  race.getSelectedItem().toString()));
-            postParameters.add(new BasicNameValuePair("sexe",  sexe.getSelectedItem().toString()));
-            postParameters.add(new BasicNameValuePair("date_naissance",  dateDeNaissance.getText().toString()));
-            postParameters.add(new BasicNameValuePair("nom_bovin",  nomVache.getText().toString()));
-            // Paramètres sur l'agri
-            postParameters.add(new BasicNameValuePair("nom_agri",settings.getString("FirstName","NomAgri")));
-            postParameters.add(new BasicNameValuePair("prenom_agri",settings.getString("LastName", "PrenomAgri")));
-            postParameters.add(new BasicNameValuePair("n_tel_agri",settings.getString("Phone", "Tel")));
-            postParameters.add(new BasicNameValuePair("adr_agri",settings.getString("Address", "Adresse")));
-            postParameters.add(new BasicNameValuePair("id_agriculteur",settings.getString("ExploitationNumber", "NumeroExploitation")));
+            postParameters.add(new BasicNameValuePair("date_mort", dateDeMort.getText().toString()));
+            // Paramètres sur l'abbat
+            postParameters.add(new BasicNameValuePair("nom_abat",settings.getString("nomAbba","NomAgri")));
+            postParameters.add(new BasicNameValuePair("n_tel_abat",settings.getString("Phone", "Tel")));
+            postParameters.add(new BasicNameValuePair("adr_abat",settings.getString("Address", "Adresse")));
+
 
             ThreadPost threadPost = new ThreadPost(postParameters);
             threadPost.start();
