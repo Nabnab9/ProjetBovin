@@ -35,7 +35,7 @@
 			 
 					include("config_server.php");
 					
-					
+					echo"<h1> YOYOYOYOLLYOYLL</h1>";
 					
 					
 					$code_boucle = $_GET["code_boucle"];

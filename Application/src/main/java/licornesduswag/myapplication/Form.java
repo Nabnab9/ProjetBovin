@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -31,20 +32,24 @@ public class Form extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.form);
         scanBtn = (Button)findViewById(R.id.ScanButton);
-        saveBtn = (Button)findViewById(R.id.SaveButton);
+        saveBtn = (Button)findViewById(R.id.SubmitButton);
         contentTxt = (TextView)findViewById(R.id.Code128);
         scanBtn.setOnClickListener(this);
+        saveBtn.setOnClickListener(this);
+
         Context context = getApplicationContext();
         settings = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
     public void onClick(View v){
         if(v.getId()==R.id.ScanButton){
+            Log.d("Scan","BoutonScanner");
             IntentIntegrator scanIntegrator = new IntentIntegrator(this);
+
             scanIntegrator.initiateScan();
         }
-        else if(v.getId()==R.id.SaveButton){
-
+        else if(v.getId()==R.id.SubmitButton){
+            Log.d("Scan","Enregistrer");
             ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
             //On crée la liste qui contiendra tous nos paramètres
             //Et on y rajoute nos paramétres

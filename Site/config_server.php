@@ -7,11 +7,11 @@
 	//Nom du serveur
 	$servername = "localhost";
 	//nom d'utilisateur
-	$username = "s122613";
+	$username = "root";
 	//Mot de passe
-	$password = "coc44ps";
+	$password = "";
 	//nom de la basse de donnée
-	$dbname = "projetbovin";
+	$dbname = "microprojetb";
 
 
 	// Create connection
