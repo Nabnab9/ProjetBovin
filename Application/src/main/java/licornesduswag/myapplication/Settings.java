@@ -19,6 +19,7 @@ public class Settings extends Activity implements OnClickListener{
     private TextView lastName;
     private TextView phone;
     private TextView addr;
+    private TextView numExploit;
     SharedPreferences settings;
     SharedPreferences.Editor editor;
 
@@ -31,6 +32,7 @@ public class Settings extends Activity implements OnClickListener{
             lastName = (TextView)findViewById(R.id.LastName);
             phone = (TextView)findViewById(R.id.Phone);
             addr = (TextView)findViewById(R.id.Address);
+            numExploit = (TextView)findViewById(R.id.NumExploitation);
             savBtn.setOnClickListener(this);
             Context context = getApplicationContext();
             settings = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -43,6 +45,7 @@ public class Settings extends Activity implements OnClickListener{
         lastName.setText(settings.getString("LastName","Prénom"));
         phone.setText(settings.getString("Phone","Tél."));
         addr.setText(settings.getString("Address", "Adresse"));
+        numExploit.setText(settings.getString("ExploitationNumber","NumeroExploitation"));
     }
 
     public void onClick(View v){
@@ -52,6 +55,7 @@ public class Settings extends Activity implements OnClickListener{
                 this.editor.putString("LastName", lastName.getText().toString());
                 this.editor.putString("Address", addr.getText().toString());
                 this.editor.putString("Phone", phone.getText().toString());
+                this.editor.putString("ExploitationNumber", numExploit.getText().toString());
                 this.editor.commit();
                 Intent menu = new Intent(Settings.this, MainActivity.class);
                 startActivityForResult(menu, act);
@@ -63,5 +67,6 @@ public class Settings extends Activity implements OnClickListener{
         this.editor.remove("LastName");
         this.editor.remove("Address");
         this.editor.remove("Phone");
+        this.editor.remove("ExploitationNumber");
     }
 }

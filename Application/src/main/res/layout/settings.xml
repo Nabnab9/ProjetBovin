@@ -31,6 +31,18 @@
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/LastName"
         android:layout_alignEnd="@+id/LastName" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="Numéro Exploitation"
+        android:ems="10"
+        android:id="@+id/NumExploitation"
+        android:layout_below="@+id/FirstName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/FirstName"
+        android:layout_alignEnd="@+id/FirstName" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -38,11 +50,11 @@
         android:inputType="phone"
         android:ems="10"
         android:id="@+id/Phone"
-        android:layout_below="@+id/FirstName"
+        android:layout_below="@+id/NumExploitation"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/FirstName"
-        android:layout_alignEnd="@+id/FirstName"
+        android:layout_alignRight="@+id/NumExploitation"
+        android:layout_alignEnd="@+id/NumExploitation"
         android:text="Tél." />
 
     <EditText

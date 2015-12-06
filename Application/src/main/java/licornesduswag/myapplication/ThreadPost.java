@@ -28,7 +28,7 @@ public class ThreadPost extends Thread{
     public void run ()
     {
         //adresse localhost
-        HttpPost httppost = new HttpPost("http://10.0.2.2/ProjetBovin/Site/test.php");
+        HttpPost httppost = new HttpPost("http://10.0.2.2/ProjetBovin/Site/verif.php");
         try {
             httppost.setEntity(new UrlEncodedFormEntity(params));
             HttpClient httpclient = new DefaultHttpClient();

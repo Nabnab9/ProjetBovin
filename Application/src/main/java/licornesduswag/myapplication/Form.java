@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.apache.http.NameValuePair;
@@ -25,7 +26,14 @@ import java.util.ArrayList;
 public class Form extends Activity implements OnClickListener{
     private Button scanBtn;
     private Button saveBtn;
-    private TextView contentTxt;
+    private TextView codeBoucle;
+    private TextView nomVache;
+    private TextView dateDeNaissance;
+    private Spinner race;
+    private Spinner sexe;
+
+
+
     SharedPreferences settings;
 
     @Override
@@ -34,7 +42,14 @@ public class Form extends Activity implements OnClickListener{
         setContentView(R.layout.form);
         scanBtn = (Button)findViewById(R.id.ScanButton);
         saveBtn = (Button)findViewById(R.id.SubmitButton);
-        contentTxt = (EditText)findViewById(R.id.Code128);
+        codeBoucle = (EditText)findViewById(R.id.Code128);
+        nomVache = (EditText)findViewById(R.id.CowName);
+        dateDeNaissance = (EditText)findViewById(R.id.BirthDate);
+        race = (Spinner)findViewById(R.id.Race);
+        sexe = (Spinner)findViewById(R.id.Gender);
+
+
+
         scanBtn.setOnClickListener(this);
         saveBtn.setOnClickListener(this);
 
@@ -51,15 +66,25 @@ public class Form extends Activity implements OnClickListener{
         }
         else if(v.getId()==R.id.SubmitButton){
             Log.d("Scan","Enregistrer");
-            ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
             //On crée la liste qui contiendra tous nos paramètres
+            ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
+
+            Log.d("Settings",settings.getString("ExploitationNumber", "NumeroExploitation"));
             //Et on y rajoute nos paramétres
-            postParameters.add(new BasicNameValuePair("code_boucle",  contentTxt.getText().toString()));
-            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", "Jean-mi"));
-            postParameters.add(new BasicNameValuePair("id_agriculteur", "Jean-mi"));
+            //Paramètres sur la vache
+            postParameters.add(new BasicNameValuePair("code_boucle",  codeBoucle.getText().toString()));
+            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", settings.getString("ExploitationNumber", "NumeroExploitation")));
+            postParameters.add(new BasicNameValuePair("race",  race.toString()));
+            postParameters.add(new BasicNameValuePair("sexe",  sexe.toString()));
+            postParameters.add(new BasicNameValuePair("date_naissance",  dateDeNaissance.getText().toString()));
+            postParameters.add(new BasicNameValuePair("nom_bovin",  nomVache.getText().toString()));
+            // Paramètres sur l'agri
+            postParameters.add(new BasicNameValuePair("nom_agri",settings.getString("FirstName","NomAgri")));
+            postParameters.add(new BasicNameValuePair("prenom_agri",settings.getString("LastName", "PrenomAgri")));
+            postParameters.add(new BasicNameValuePair("n_tel_agri",settings.getString("Phone", "Tel")));
+            postParameters.add(new BasicNameValuePair("adr_agri",settings.getString("Address", "Adresse")));
+            postParameters.add(new BasicNameValuePair("id_agriculteur",settings.getString("ExploitationNumber", "NumeroExploitation")));
 
-
-            postParameters.add(new BasicNameValuePair("pass", "patate"));
             ThreadPost threadPost = new ThreadPost(postParameters);
             threadPost.start();
 
@@ -72,7 +97,7 @@ public class Form extends Activity implements OnClickListener{
         IntentResult scanningResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanningResult != null) {
             String scanContent = scanningResult.getContents();
-            contentTxt.setText(scanContent);
+            codeBoucle.setText(scanContent);
         }
         else{
             Toast toast = Toast.makeText(getApplicationContext(),
