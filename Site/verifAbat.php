@@ -17,8 +17,6 @@
 				
 				//On récupère toutes les informations envoyées par le formulaire
 				//le bovin
-				
-				
 				$code_boucle= $_POST['code_boucle'];
 				
 				$date_mort= $_POST['date_mort'];
@@ -27,25 +25,6 @@
 				$nom_abat = $_POST['nom_abat'];
 				$n_tel_abat = $_POST['n_tel_abat'];
 				$adr_abat = $_POST['adr_abat'];
-				
-				
-				$res = array();
-				//$res = explode(" ", $code_boucle);
-				/*$res = explode(" ", $code_boucle);
-				$pays = $res[0];
-				$departement = $res[1];
-				$exploitation = $res[2];
-				$num_travail = $res[3];*/
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				
 				//requete sql pour inserer toutes les information dans la table abattoir
 				$requete = "SELECT COUNT(*) as nombre FROM `abattoir` WHERE `nom_abat`='$nom_abat'";
@@ -58,7 +37,7 @@
 				}
 				else
 				{
-					$sqlAbat = "INSERT INTO abattoir (nom_abat, n_tel_abat, adr_abat) VALUES ('$nom_abat','$n_tel_abat', '$adr_abat' ) WHERE $nom_abat NOT IN nom_abat";
+					$sqlAbat = "INSERT INTO abattoir (nom_abat, n_tel_abat, adr_abat) VALUES ('$nom_abat','$n_tel_abat', '$adr_abat' )";
 				
 				if ($conn->query($sqlAbat) === TRUE) {
 					
@@ -76,7 +55,7 @@
 				
 				
 				//Requete sql pour insérer toutes les informations du bovin
-				 $sqlBovin =" UPDATE bovin SET date_mort='$date_mort',nom_abat_bovin='$nom_abat' WHERE code_boucle=$code_boucle";
+				 $sqlBovin =" UPDATE bovin SET date_mort='$date_mort',nom_abat_bovin='$nom_abat' WHERE code_boucle='$code_boucle'";
 				 
 				 //Vérifie que la requète s'est bien effectuée
 				 if ($conn->query($sqlBovin) === TRUE) {
