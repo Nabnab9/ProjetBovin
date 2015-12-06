@@ -8,6 +8,8 @@ package licornesduswag.myapplication;
 
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import org.apache.http.*;
@@ -26,12 +28,19 @@ public class ThreadPost extends Thread{
     public void run ()
     {
         //adresse localhost
-        HttpPost httppost = new HttpPost("http://10.0.2.2/test.php");
+        HttpPost httppost = new HttpPost("http://10.0.2.2/ProjetBovin/Site/test.php");
         try {
             httppost.setEntity(new UrlEncodedFormEntity(params));
             HttpClient httpclient = new DefaultHttpClient();
-            Log.d("Thread","Thread");
-            httpclient.execute(httppost); //Voila, la requête est envoyée
+            Log.d("Thread", "Thread");
+            HttpResponse response=httpclient.execute(httppost); //Voila, la requête est envoyée
+            BufferedReader reader= new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            String ligne;
+            while((ligne=reader.readLine())!=null)
+            {
+                Log.d("Reponse",ligne);
+            }
+            reader.close();
             
 
         } catch (Exception e) {

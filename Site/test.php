@@ -18,24 +18,19 @@
 				//On récupère toutes les informations envoyées par le formulaire
 				//le bovin
 				$code_boucle= $_POST['code_boucle'];
-				apzpoepazeâpmeazjlejkllnznelk
+				$id_agriculteur_bovin = $_POST['id_agriculteur_bovin'];
+				$id_agriculteur = $_POST['id_agriculteur'];
 				
+				$sqlAgri = "INSERT INTO agriculteur (id_agriculteur) VALUES ('$id_agriculteur')";
 				
+				if ($conn->query($sqlAgri) === TRUE) {
+					
+				}
+				else{
 				
-				
-				
-				
-				//requete sql pour inserer toutes les information dans la table agriculeur
-				
-				
-				
-				
-				//requete sql pour inserer toutes les information dans la table abattoir
-				
-				
-				//Requete sql pour insérer toutes les informations du bovin
-				 $sqlBovin =" INSERT INTO bovin (code_boucle)
-				 VALUES ('$code_boucle')";
+					echo "Error: " . $sqlAgri . "<br>" . $conn->error;
+				}
+				$sqlBovin = "INSERT INTO bovin (code_boucle,id_agriculteur_bovin) VALUES ('$code_boucle','$id_agriculteur_bovin')";
 				 
 				 //Vérifie que la requète s'est bien effectuée
 				 if ($conn->query($sqlBovin) === TRUE) {
