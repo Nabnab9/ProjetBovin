@@ -17,12 +17,15 @@
 				
 				//On récupère toutes les informations envoyées par le formulaire
 				//le bovin
+				
+				
 				$code_boucle= $_POST['code_boucle'];
 				$nom_bovin= $_POST['nom_bovin'];
-				$pays= $_POST['pays'];
+				/*$pays= $_POST['pays'];
 				$departement= $_POST['departement'];
 				$exploitation= $_POST['exploitation'];
-				$num_travail= $_POST['num_travail'];
+				$num_travail= $_POST['num_travail'];*/
+				
 				$date_naissance= $_POST['date_naissance'];
 				$date_mort= $_POST['date_mort'];
 				$race= $_POST['race'];
@@ -41,6 +44,16 @@
 				$nom_abat = $_POST['nom_abat'];
 				$n_tel_abat = $_POST['n_tel_abat'];
 				$adr_abat = $_POST['adr_abat'];
+				
+				
+				$res = array();
+				//$res = explode(" ", $code_boucle);
+				$res = explode(" ", $code_boucle);
+				$pays = $res[0];
+				$departement = $res[1];
+				$exploitation = $res[2];
+				$num_travail = $res[3];
+				
 				
 				
 				
