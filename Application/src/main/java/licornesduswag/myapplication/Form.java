@@ -97,8 +97,8 @@ public class Form extends Activity implements OnClickListener{
             postParametersAgriculteur.add(new BasicNameValuePair("adr_agri",settings.getString("Address", "Adresse")));
             postParametersAgriculteur.add(new BasicNameValuePair("id_agriculteur",settings.getString("ExploitationNumber", "NumeroExploitation")));
 
-            ThreadPost threadPostAgriculteur = new ThreadPost(postParametersAgriculteur, "verrif.php");
-            ThreadPost threadPostBovin = new ThreadPost(postParametersBovin, "verif.php");
+            ThreadPost threadPostAgriculteur = new ThreadPost(postParametersAgriculteur, "verifAgri.php");
+            ThreadPost threadPostBovin = new ThreadPost(postParametersBovin, "verifBovin.php");
             threadPostAgriculteur.start();
             threadPostBovin.start();
 

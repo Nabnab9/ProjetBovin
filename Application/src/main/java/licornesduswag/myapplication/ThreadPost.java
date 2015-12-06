@@ -48,22 +48,11 @@ public class ThreadPost extends Thread{
             {
                 Log.d("Reponse",ligne);
 
-
             }
-
-
-
-
-
             reader.close();
-
-
-            
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 }

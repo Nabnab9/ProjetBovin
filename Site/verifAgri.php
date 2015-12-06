@@ -17,15 +17,8 @@
 				
 				//On récupère toutes les informations envoyées par le formulaire
 				//le bovin
-				
-				
 				$code_boucle= $_POST['code_boucle'];
 				$nom_bovin= $_POST['nom_bovin'];
-				/*$pays= $_POST['pays'];
-				$departement= $_POST['departement'];
-				$exploitation= $_POST['exploitation'];
-				$num_travail= $_POST['num_travail'];*/
-				
 				$date_naissance= $_POST['date_naissance'];
 				$date_mort= $_POST['date_mort'];
 				$race= $_POST['race'];
