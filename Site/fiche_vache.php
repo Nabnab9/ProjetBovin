@@ -5,9 +5,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="dist/js/bootstrap.min.js"></script>
+		<script src="bootstrap/dist/js/bootstrap.min.js"></script>
 	</head>
 
 	<style>
@@ -35,7 +35,7 @@
 			 
 					include("config_server.php");
 					
-					echo"<h1> YOYOYOYOLLYOYLL</h1>";
+					
 					
 					
 					$code_boucle = $_GET["code_boucle"];
@@ -81,7 +81,7 @@
 
 									<div class=\"container-fluid bg-3 text-center\">
 									  <h3>Mon exploitation</h3>
-									  <h4><u>Pays :</u>". $row["payss"]."</h4>
+									  <h4><u>Pays :</u>". $row["pays"]."</h4>
 									  <h4><u>Departement :</u>". $row["departement"]."</h4>
 									  <h4><u>Adresse :</u>". $row["adr_agri"]."</h4>
 									  <h4><u>N° Tel :</u>". $row["n_tel_agri"]."</h4>
@@ -89,7 +89,7 @@
 									
 									<div class=\"container-fluid bg-1 text-center\">
 										<h3>Mon terminus</h3>
-										<h4><u>Nom :". $row["nom_abat"]."</h4>
+										<h4><u>Nom :</u>". $row["nom_abat"]."</h4>
 										<h4><u>Adresse :</u> ". $row["adr_abat"]."</h4>
 										<h4><u>N° Tel :</u>". $row["n_tel_abat"]."</h4>
 										<h4><u>Date de mort :</u>". $row["date_mort"]."</h4>
