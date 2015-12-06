@@ -67,7 +67,6 @@ public class Form extends Activity implements OnClickListener{
         else if(v.getId()==R.id.SubmitButton){
             Log.d("Scan","Enregistrer");
             //On crée la liste qui contiendra tous nos paramètres
-            ArrayList<NameValuePair> postParametersAgriculteur = new ArrayList<NameValuePair>();
 
             ArrayList<NameValuePair> postParametersBovin = new ArrayList<NameValuePair>();
 
@@ -80,26 +79,19 @@ public class Form extends Activity implements OnClickListener{
 
 
 
-            postParameters.add(new BasicNameValuePair("code_boucle",  codeBoucle.getText().toString()));
-            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", settings.getString("ExploitationNumber", "NumeroExploitation")));
-            postParameters.add(new BasicNameValuePair("race",  race.getSelectedItem().toString()));
-            postParameters.add(new BasicNameValuePair("sexe",  sexe.getSelectedItem().toString()));
-            postParameters.add(new BasicNameValuePair("date_naissance",  dateDeNaissance.getText().toString()));
-            postParameters.add(new BasicNameValuePair("nom_bovin",  nomVache.getText().toString()));
+            postParametersBovin.add(new BasicNameValuePair("code_boucle",  codeBoucle.getText().toString()));
+            postParametersBovin.add(new BasicNameValuePair("id_agriculteur_bovin", settings.getString("ExploitationNumber", "NumeroExploitation")));
+            postParametersBovin.add(new BasicNameValuePair("race",  race.getSelectedItem().toString()));
+            postParametersBovin.add(new BasicNameValuePair("sexe",  sexe.getSelectedItem().toString()));
+            postParametersBovin.add(new BasicNameValuePair("date_naissance",  dateDeNaissance.getText().toString()));
+            postParametersBovin.add(new BasicNameValuePair("nom_bovin",  nomVache.getText().toString()));
 
             
 
 
-            // Paramètres sur l'agri
-            postParametersAgriculteur.add(new BasicNameValuePair("nom_agri",settings.getString("FirstName","NomAgri")));
-            postParametersAgriculteur.add(new BasicNameValuePair("prenom_agri",settings.getString("LastName", "PrenomAgri")));
-            postParametersAgriculteur.add(new BasicNameValuePair("n_tel_agri",settings.getString("Phone", "Tel")));
-            postParametersAgriculteur.add(new BasicNameValuePair("adr_agri",settings.getString("Address", "Adresse")));
-            postParametersAgriculteur.add(new BasicNameValuePair("id_agriculteur",settings.getString("ExploitationNumber", "NumeroExploitation")));
 
-            ThreadPost threadPostAgriculteur = new ThreadPost(postParametersAgriculteur, "verifAgri.php");
             ThreadPost threadPostBovin = new ThreadPost(postParametersBovin, "verifBovin.php");
-            threadPostAgriculteur.start();
+
             threadPostBovin.start();
 
 

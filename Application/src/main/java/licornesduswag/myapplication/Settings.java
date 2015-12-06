@@ -12,6 +12,11 @@ import android.content.Context;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+
 public class Settings extends Activity implements OnClickListener{
     private static final int act = 1;
     private Button savBtn;
@@ -59,6 +64,17 @@ public class Settings extends Activity implements OnClickListener{
                 this.editor.commit();
                 Intent menu = new Intent(Settings.this, MainActivity.class);
                 startActivityForResult(menu, act);
+                ArrayList<NameValuePair> postParametersAgriculteur = new ArrayList<NameValuePair>();
+
+                // Paramètres sur l'agri
+                postParametersAgriculteur.add(new BasicNameValuePair("nom_agri", settings.getString("FirstName", "NomAgri")));
+                postParametersAgriculteur.add(new BasicNameValuePair("prenom_agri", settings.getString("LastName", "PrenomAgri")));
+                postParametersAgriculteur.add(new BasicNameValuePair("n_tel_agri", settings.getString("Phone", "Tel")));
+                postParametersAgriculteur.add(new BasicNameValuePair("adr_agri", settings.getString("Address", "Adresse")));
+                postParametersAgriculteur.add(new BasicNameValuePair("id_agriculteur", settings.getString("ExploitationNumber", "NumeroExploitation")));
+
+                ThreadPost threadPostAgriculteur = new ThreadPost(postParametersAgriculteur, "verifAgri.php");
+                threadPostAgriculteur.start();
             }
     }
 
