@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.apache.http.NameValuePair;
@@ -33,7 +34,7 @@ public class Form extends Activity implements OnClickListener{
         setContentView(R.layout.form);
         scanBtn = (Button)findViewById(R.id.ScanButton);
         saveBtn = (Button)findViewById(R.id.SubmitButton);
-        contentTxt = (TextView)findViewById(R.id.Code128);
+        contentTxt = (EditText)findViewById(R.id.Code128);
         scanBtn.setOnClickListener(this);
         saveBtn.setOnClickListener(this);
 
@@ -53,9 +54,9 @@ public class Form extends Activity implements OnClickListener{
             ArrayList<NameValuePair> postParameters = new ArrayList<NameValuePair>();
             //On crée la liste qui contiendra tous nos paramètres
             //Et on y rajoute nos paramétres
-            postParameters.add(new BasicNameValuePair("code_boucle", "45321"));
-            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", "Mcihel"));
-            postParameters.add(new BasicNameValuePair("id_agriculteur", "Mcihel"));
+            postParameters.add(new BasicNameValuePair("code_boucle",  contentTxt.getText().toString()));
+            postParameters.add(new BasicNameValuePair("id_agriculteur_bovin", "Jean-mi"));
+            postParameters.add(new BasicNameValuePair("id_agriculteur", "Jean-mi"));
 
 
             postParameters.add(new BasicNameValuePair("pass", "patate"));
